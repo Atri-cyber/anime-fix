@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;  /* Gunakan Flexbox untuk menyusun item */
+    flex-direction: column; /* Menyusun navbar secara vertikal di perangkat mobile */
+    align-items: center; /* Agar teks dan link sejajar tengah */
+    background-color: #333;
+    padding: 1rem;
+}
+
+.navbar-title {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-bottom: 1rem;
+}
+
+/* Navbar Links */
+.navbar-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Menyusun link secara horizontal */
+    gap: 20px; /* Jarak antar link */
+}
+
+.navbar-links li {
+    display: inline-block;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+/* Responsif: Menjaga navbar tetap horizontal pada perangkat kecil */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Navbar akan berada di bawah judul, vertikal pada layar kecil */
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: row; /* Tetap horizontal */
+        justify-content: center;
+        gap: 10px; /* Sesuaikan jarak antar link */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-title {
+        font-size: 1.5rem; /* Menyesuaikan ukuran font judul pada perangkat kecil */
+    }
+    .navbar-links a {
+        font-size: 0.9rem; /* Menyesuaikan ukuran font link pada perangkat kecil */
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Anime</title>
+    <link rel="stylesheet" href="add.css">
+</head>
+<body>
+  <!-- Navbar -->
+<div class="navbar">
+    <div class="navbar-title">List Anime In My Life</div>
+    <ul class="navbar-links">
+        <li><a href="pembuka.html">Home</a></li>
+        <li><a href="#">List Anime</a></li>
+        <li><a href="#">Top 10 Anime Elite</a></li>
+    </ul>
+</div>
+
+    <div class="container">
+        <h1>Add Anime</h1>
+        <form id="add-anime-form">
+            <div class="form-group">
+                <label for="anime-title">Anime Title</label>
+                <input type="text" id="anime-title" name="anime-title" placeholder="Enter anime title" required>
+            </div>
+            <div class="form-group">
+                <label for="anime-cover">Anime Cover (URL)</label>
+                <input type="url" id="anime-cover" name="anime-cover" placeholder="Enter cover image URL" required>
+            </div>
+            <div class="form-group">
+                <label for="rating-story">Story Rating (1-10)</label>
+                <input type="number" id="rating-story" name="rating-story" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="rating-graphic">Graphic Rating (1-10)</label>
+                <input type="number" id="rating-graphic" name="rating-graphic" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="rating-character">Character Rating (1-10)</label>
+                <input type="number" id="rating-character" name="rating-character" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="rating-ost">OST/OP/ED Rating (1-10)</label>
+                <input type="number" id="rating-ost" name="rating-ost" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="anime-studio">Studio</label>
+                <input type="text" id="anime-studio" name="anime-studio" placeholder="Enter studio name" required>
+            </div>
+            <div class="form-group">
+                <label for="anime-source">Source</label>
+                <select id="anime-source" name="anime-source" required>
+                    <option value="" disabled selected>Select source</option>
+                    <option value="Manga">Manga</option>
+                    <option value="Light Novel">Light Novel</option>
+                    <option value="Original">Original</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="anime-genre">Genre</label>
+                <input type="text" id="anime-genre" name="anime-genre" placeholder="Enter genres (comma-separated)" required>
+            </div>
+            <button type="submit">Add Anime</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('add-anime-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+        // Ambil nilai input dari form
+        const title = document.getElementById('anime-title').value;
+        const cover = document.getElementById('anime-cover').value;
+        const storyRating = document.getElementById('rating-story').value;
+        const graphicRating = document.getElementById('rating-graphic').value;
+        const characterRating = document.getElementById('rating-character').value;
+        const ostRating = document.getElementById('rating-ost').value;
+        const studio = document.getElementById('anime-studio').value;
+        const source = document.getElementById('anime-source').value;
+        const genre = document.getElementById('anime-genre').value;
+    
+        // Buat object untuk anime
+        const anime = {
+            title,
+            cover,
+            storyRating,
+            graphicRating,
+            characterRating,
+            ostRating,
+            studio,
+            source,
+            genre
+        };
+    
+        // Simpan ke LocalStorage
+        const animeList = JSON.parse(localStorage.getItem('animeList')) || [];
+        animeList.push(anime);
+        localStorage.setItem('animeList', JSON.stringify(animeList));
+    
+        // Reset form
+        this.reset();
+    
+        alert('Anime successfully added!');
+    });
+    </script>
+</body>
+</html>
